@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="example.com.article.models.Article.User" />
+
+        <variable
+            name="media"
+            type="example.com.article.models.Article.Media" />
+
+        <variable
+            name="article"
+            type="example.com.article.models.Article" />
+
+        <variable
+            name="isMediaAvailable"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cv_article"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_16dp"
+        android:paddingEnd="@dimen/_16dp"
+        android:visibility="visible"
+        tools:ignore="UnusedAttribute, SpUsage">
+
+        <LinearLayout
+            android:id="@+id/ll_user_avatar"
+            android:layout_width="@dimen/_60dp"
+            android:layout_height="@dimen/_60dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:background="@drawable/shape_user_avatar_background"
+            android:padding="@dimen/_2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_user_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:src_avatar="@{user.avatar}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/ll_user_avatar"
+            app:layout_constraintEnd_toEndOf="@+id/tv_article_time"
+            app:layout_constraintStart_toEndOf="@+id/ll_user_avatar"
+            app:layout_constraintTop_toTopOf="@+id/ll_user_avatar">
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:text="@{user.name}"
+                android:textColor="@color/color_1e1e1e"
+                android:textSize="@dimen/_18dp"
+                tools:text="name" />
+
+            <TextView
+                android:id="@+id/tv_user_designation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif"
+                android:maxLines="1"
+                android:text="@{user.designation}"
+                android:textColor="@color/color_1e1e1e"
+                android:textSize="@dimen/_16dp"
+                tools:text="name" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_article_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:maxLines="1"
+            android:textColor="@color/color_181818"
+            android:textSize="@dimen/_12dp"
+            app:article_time="@{article.createdAt}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="name" />
+
+        <LinearLayout
+            android:id="@+id/ll_article_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:background="@drawable/shape_article_background"
+            android:padding="@dimen/_2dp"
+            android:visibility="@{isMediaAvailable?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_user_avatar">
+
+            <ImageView
+                android:id="@+id/iv_article_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:src_article="@{media.image}" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_article_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:fontFamily="sans-serif"
+            android:text="@{article.content}"
+            android:textColor="@color/color_181818"
+            android:textSize="@dimen/_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_article_image"
+            tools:text="name" />
+
+        <TextView
+            android:id="@+id/tv_article_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18dp"
+            android:fontFamily="sans-serif"
+            android:text="@{media.title}"
+            android:textColor="@color/color_181818"
+            android:textSize="@dimen/_16dp"
+            android:visibility="@{isMediaAvailable?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_content"
+            tools:text="name" />
+
+        <TextView
+            android:id="@+id/tv_article_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18dp"
+            android:autoLink="phone|email|web|all"
+            android:fontFamily="sans-serif"
+            android:text="@{media.url}"
+            android:textColor="@color/color_181818"
+            android:textColorLink="@color/color_181818"
+            android:textSize="@dimen/_14dp"
+            android:visibility="@{isMediaAvailable?View.VISIBLE:View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_title"
+            tools:text="name" />
+
+        <TextView
+            android:id="@+id/tv_article_likes_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/color_181818"
+            android:textSize="@dimen/_18dp"
+            app:append_text='@{@string/likes}'
+            app:count="@{article.likes}"
+            app:layout_constraintEnd_toStartOf="@+id/tv_article_comments_count"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_url"
+            tools:text="name" />
+
+        <TextView
+            android:id="@+id/tv_article_comments_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/color_181818"
+            android:textSize="@dimen/_18dp"
+            app:append_text='@{@string/comments}'
+            app:count="@{article.comments}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_url"
+            tools:text="@string/comments" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:background="@color/color_979797"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_likes_count" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

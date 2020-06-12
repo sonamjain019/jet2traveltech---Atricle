@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowBackground">@color/color_ffffff</item>
+        <item name="android:textColorSecondary">@color/colorPrimary</item>
+    </style>
+
+
+    <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/color_000000</item>
+        <item name="android:tint">@color/color_000000</item>
+        <item name="android:background">@color/color_ebebeb</item>
+        <!-- <item name="android:windowTranslucentStatus">true</item>-->
+    </style>
+
+    <style name="ToolbarTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_000000</item>
+        <item name="android:textSize" tools:ignore="SpUsage">@dimen/_25dp</item>
+    </style>
+
+
+</resources>

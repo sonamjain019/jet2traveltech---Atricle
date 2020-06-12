@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;TemporaryDataManager.java&apos; to &apos;HotelPro/src/com.example.hotelpor&apos;&#x0D;&#x0A;- Original project: &apos;TFA New&apos;&#x0D;&#x0A;- Destination element: &apos;HotelPro/src/com.example.hotelpor&apos;&#x0D;&#x0A;- Original element: &apos;com.bbi.tiermed_fa_app.TemporaryDataManager.java&apos;" description="Copy compilation unit" destination="=HotelPro/src&lt;com.example.hotelpor" element1="/src&lt;com.bbi.tiermed_fa_app{TemporaryDataManager.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1449332038728" units="1" version="1.0"/>
+</session>
